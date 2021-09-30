@@ -2,18 +2,18 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
- name: yaml-lint
+  name: yaml-lint
 spec:
   params:
     - name: repo
-    type: string
+      type: string
   tasks:
-    - - name: clone
+    - name: clone
       params:
         - name: url
           value: "$(params.repo)"
       taskRef:
-  - name: git-clone
+    - name: git-clone
         kind: ClusterTask
       workspaces:
         - name: output
